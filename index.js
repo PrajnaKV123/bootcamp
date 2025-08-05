@@ -12,5 +12,7 @@ b = 30;
 console.log(b);
 
 const c=30;
-c = 80;
-console.log(C);
+window.c = 80;
+console.log(c);
+
+window.console.log(window.c);
