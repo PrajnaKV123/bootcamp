@@ -1,0 +1,42 @@
+*{
+    color:blue;
+}
+
+p{
+    color:aqua;
+    font-size :40px;
+}
+
+#a{
+    color:hotpink;
+    font-size : 20px;
+}
+
+.b
+{
+    color:green;
+    font-size :60px;
+}
+
+h1{
+    background-color:yellow;
+    font-size:50px;
+    margin:50px;
+    padding:10px 20px;
+    border:10px solid red;
+    color:black;
+    text-align:center;
+}
+
+h1::after{
+    content:" written by css";
+    color :black;
+}
+
+
+
+li:nth-child(3){
+    color:olivedrab;
+    font-size:60px;
+    font:bold 200px;
+}

@@ -1,0 +1,40 @@
+/*universal*/
+*{
+    color: maroon;
+
+}
+h1{
+    border: 1px solid red;
+    /*padding: 20px;*/
+    /*padding: 20px 40px 80px 50px;*/
+    padding: 30px 60px;
+    margin: 40px;
+}
+/*tag selector*/
+p{
+    color: green;
+
+}
+
+#a
+{
+    color: goldenrod;
+}
+.b
+{
+  color:blue;
+}
+
+li:nth-child(2)
+{
+    color:purple;
+    font-size:40px;
+}
+
+h1::before{
+    content: " written by css ";
+}
+
+h1::first-letter{
+    font-size: 80px;
+    color:chocolate;}
