@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            display:none;
+            margin:auto 0;
+
+        }
+
+        td,th{
+            border:1px solid black;
+            padding:20px 100px;
+            text-align: left;
+            background-color: lightgrey;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Fetching api Data</h1>
+    <button id="fetchBtn">Fetch Data</button>
+    <table>
+        <tr>
+        <th>SI.No</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Email</th>
+        </tr>
+    </table>
+    <!--<ul id ="fetchList"></ul>-->
+    <ul id="fetchList"></ul>
+    <script>
+        const button=document.getElementById("fetchBtn");
+        const table=document.querySelector("table");
+        //Step 1:Want instance of tag where we want to add data
+        const list = document.getElementById("fetchList");
+
+       const fetching=async() => {
+            try{
+                const resp=await fetch("https://jsonplaceholder.typicode.com/users");
+                if(resp.ok){
+                    //Step 2: Want api data 
+                     const data=await resp.json();
+                     console.log(data);
+                     
+        //Step 3:Create li and put content on it
+       /* data.forEach(user=>
+            {
+                const li=document.createElement("li");
+                li.textContent=user.name;
+            
+             //Step 4:Append the li inside ul tag
+             list.appendChild(li);
+                });
+
+                }
+            }*/
+
+              data.forEach((user, index) => {
+                const tr = document.createElement("tr");
+
+                // SI.No
+                const td1 = document.createElement("td");
+                td1.textContent = index + 1;
+                tr.appendChild(td1);
+
+                // Username
+                const td2 = document.createElement("td");
+                td2.textContent = user.username;
+                tr.appendChild(td2);
+
+                // Name
+                const td3 = document.createElement("td");
+                td3.textContent = user.name;
+                tr.appendChild(td3);
+
+                // Email
+                const td4 = document.createElement("td");
+                td4.textContent=user.email;
+                tr.appendChild(td4);
+
+                table.appendChild(tr);
+              });
+            }
+
+
+        }catch(error){
+                console.error("Error fetching data",error);
+                
+        
+        }
+    };
+            
+        
+        fetchBtn.addEventListener("click", () => {
+            table.style.display = "table"; // Show the table
+            fetchBtn.style.display = "none"; // Hide the button after click
+            fetching();
+        });
+</script>    
+</body>
+</html>
